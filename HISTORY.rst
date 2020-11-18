@@ -1,6 +1,14 @@
 Changelog
 =========
 
+0.8.0 (2020-11-18)
+------------------
+
+- Package renamed to ``brotlicffi``, previously was named ``brotlipy``.
+  Rename was done to not conflict with the namespace ``brotli``.
+- Added ``is_finished()`` to ``Decompressor`` to match API of Google's Brotli bindings
+- Added ``__version__`` to package
+
 0.7.0 (2017-05-30)
 ------------------
 
