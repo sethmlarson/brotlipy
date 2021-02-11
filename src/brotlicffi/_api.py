@@ -401,8 +401,11 @@ class Decompressor(object):
             if rc == lib.BROTLI_DECODER_RESULT_ERROR:
                 error_code = lib.BrotliDecoderGetErrorCode(self._decoder)
                 error_message = lib.BrotliDecoderErrorString(error_code)
+                message = ffi.string(error_message)
+                if not isinstance(message, str):
+                    message = message.decode("utf-8")
                 raise error(
-                    "Decompression error: %s" % ffi.string(error_message)
+                    "Decompression error: %s" % (message,)
                 )
 
             # Next, copy the result out.
